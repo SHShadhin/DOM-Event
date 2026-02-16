@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>github delete</title>
+</head>
+<body>
+  <h2 id="secret">My secret info</h2>
+  <input type="text" placeholder="write delete" id="text-delete">
+  <button id="btn-delete" disabled>Delete</button>
+
+
+  <script>
+    document.getElementById('text-delete')
+      .addEventListener('keyup', function(event) {
+        const text = event.target.value;
+        const btnDelete = document.getElementById('btn-delete')
+        
+        console.log(text)
+        if(text === 'delete') {
+          btnDelete.removeAttribute('disabled');
+          console.log('delete typed')
+        }
+        else {
+          btnDelete.setAttribute('disabled', true)
+          console.log('plese write delete')
+        }
+
+        // when clicked on button hide the heading and input field remove text
+        document.getElementById('btn-delete').addEventListener('click', function () {
+          const secretInfo = document.getElementById('secret');
+          secretInfo.style.display = 'none'
+          const inputField = document.getElementById('text-delete')
+          inputField.value = '';
+
+        })
+
+      })
+  </script>
+</body>
+</html>

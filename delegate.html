@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event delegate</title>
+</head>
+<body>
+  <h2>Explore the concept of event delegate</h2>
+  <ol id="item-list">
+    <li class="item">Item-1</li>
+    <li class="item">Item-2</li>
+    <li class="item">Item-3</li>
+    <li class="item">Item-4</li>
+    <li class="item">Item-5</li>
+    <li class="item">Item-6</li>
+  </ol>
+
+  <button id="new-added-btn">New item added</button>
+
+  <script>
+    // const items = document.getElementsByClassName('item');
+    // for (const item of items) {
+    //   item.addEventListener('click', function(event) {
+    //       event.target.parentNode.removeChild(event.target);
+    //   })
+    // }
+    document.getElementById('item-list').addEventListener('click', function(event) {
+            event.target.parentNode.removeChild(event.target)
+    })
+
+    document.getElementById('new-added-btn').addEventListener('click', function(){
+        // parent to be added to
+        const ol = document.getElementById('item-list');
+        // create new li;
+        const newList = document.createElement('li')
+        // added item class in the new list.
+        newList.classList.add('item')
+        newList.innerText = 'New Player Added'
+        // newlist added to the parent 
+        ol.appendChild(newList)
+    })
+
+
+  </script>
+</body>
+</html>

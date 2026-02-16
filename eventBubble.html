@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event bubble</title>
+  <style>
+    body {
+      border: 2px solid tomato;
+    }
+    section  {
+      border: 2px solid greenyellow;
+    }
+    ol{
+      border: 2px solid red;
+    }
+    li {
+      border: 2px solid seagreen;
+    }
+  </style>
+</head>
+<body id="body">
+  <h2>Event bubble explore</h2>
+  <section id="section">
+    <h3>Players list</h3>
+    <ol id="list-items">
+      <li>Ronaldo</li>
+      <li id="list-2">Messi</li>
+      <li>Neymar</li>
+      <li>Ronaldinho</li>
+      <li>Kaka</li>
+      <li>Estevao</li>
+    </ol>
+
+    <script>
+            // list-item click handler and propagating
+      document.getElementById('list-2')
+            .addEventListener('click', function() {
+                console.log('list-2 clicked')
+                // event.stopPropagation()
+                event.stopImmediatePropagation()
+            })
+      document.getElementById('list-2')
+            .addEventListener('click', function(event) {
+                console.log('list-2 second clicked')
+            })
+      document.getElementById('list-2')
+            .addEventListener('click', function() {
+                console.log('list-2  third clicked')
+            })
+
+            // ol click handler
+      document.getElementById('list-items')
+            .addEventListener('click', function() {
+                console.log('ol clicked')
+            })
+
+            // section click handler
+      document.getElementById('section')
+            .addEventListener('click', function() {
+                console.log('section clicked')
+            })
+
+            // body click handler
+      document.getElementById('body')
+            .addEventListener('click', function() {
+                console.log('body clicked')
+            })
+    </script>
+  </section>
+</body>
+</html>
